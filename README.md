@@ -1,73 +1,88 @@
-# Welcome to your Lovable project
+Coffeeverse Delight
 
-## Project info
+URL: https://github.com/neovinay/coffeeverse-delight
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Overview
 
-## How can I edit this code?
+Coffeeverse Delight is a premium handcrafted coffee web application built with Vite, React, and TypeScript. It showcases a beautifully designed interface for discovering, exploring, and ordering handcrafted coffees. The application includes sections for menus, shop, and contact information, providing an immersive experience for coffee enthusiasts.
 
-There are several ways of editing your application.
+Features
 
-**Use Lovable**
+Premium handcrafted coffee catalog with high-quality images
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Interactive menu and shop pages
 
-Changes made via Lovable will be committed automatically to this repo.
+Responsive design for mobile, tablet, and desktop
 
-**Use your preferred IDE**
+Clean and modern user interface with smooth animations
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Contact page with basic inquiry form
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+SEO optimized with meta tags and Open Graph support
 
-Follow these steps:
+Easy to customize and extend
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Tech Stack
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Frontend: React with TypeScript
 
-# Step 3: Install the necessary dependencies.
-npm i
+Build Tool: Vite
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Styling: Tailwind CSS
+
+State Management: React hooks
+
+Deployment Ready
+
+Installation
+
+Clone the repository to your local machine and install the dependencies. Make sure you have Node.js installed.
+
+After cloning, run:
+
+npm install
+
+To start the development server, run:
+
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+Open http://localhost:8080
+ in your browser to see the project in action.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Folder Structure
 
-**Use GitHub Codespaces**
+public/ – Static files such as images and favicon
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+src/ – Source code for components, pages, and styles
 
-## What technologies are used for this project?
+.env – Environment variables (if needed)
 
-This project is built with:
+package.json – Project metadata and dependencies
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+vite.config.ts – Vite configuration file
 
-## How can I deploy this project?
+Customization
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Replace the logo in public/ for your branding
 
-## Can I connect a custom domain to my Lovable project?
+Modify text and images in src/components and src/pages
 
-Yes, you can!
+Update theme colors and fonts in Tailwind CSS configuration
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Add your own API keys if integrating with backend services
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Deployment
+
+Coffeeverse Delight can be deployed to any static hosting platform like Vercel, Netlify, or GitHub Pages. Simply build the project and upload the contents of the dist folder.
+
+To build the project for production, run:
+
+npm run build
+
+Author
+
+Vinay Kumar
+
+License
+
+This project is licensed under the MIT License.
