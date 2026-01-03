@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Plus, Minus, ShoppingBag, Trash2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { useCart } from '@/contexts/CartContext';
 
 const CartDrawer = () => {
+  const navigate = useNavigate();
   const {
     items,
     removeFromCart,
@@ -85,7 +87,7 @@ const CartDrawer = () => {
                       <div className="flex-1">
                         <h3 className="font-medium">{item.name}</h3>
                         <p className="text-primary font-semibold">
-                          ${item.price.toFixed(2)}
+                          ₹{item.price.toFixed(2)}
                         </p>
                         <div className="flex items-center gap-2 mt-2">
                           <Button
@@ -133,10 +135,13 @@ const CartDrawer = () => {
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Subtotal</span>
                   <span className="text-2xl font-serif font-bold text-gradient-gold">
-                    ${totalPrice.toFixed(2)}
+                    ₹{totalPrice.toFixed(2)}
                   </span>
                 </div>
-                <Button variant="hero" size="xl" className="w-full">
+                <Button variant="hero" size="xl" className="w-full" onClick={() => {
+                  setIsCartOpen(false);
+                  navigate('/checkout');
+                }}>
                   Checkout
                 </Button>
                 <Button

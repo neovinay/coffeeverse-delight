@@ -71,7 +71,7 @@ const CoffeeCard = ({
         <div className="flex items-center justify-between pt-2">
           <div>
             <span className="text-2xl font-bold text-gradient-gold">
-              ${price.toFixed(2)}
+              ₹{price.toFixed(2)}
             </span>
           </div>
           <Button

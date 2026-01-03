@@ -17,7 +17,7 @@ const products = [
     id: 'beans-signature',
     name: 'Signature Blend Beans',
     description: 'Our flagship blend with notes of chocolate, caramel, and subtle fruitiness. Medium roast, perfect for any brewing method.',
-    price: 24.99,
+    price: 1999,
     image: cappuccino,
     category: 'Coffee Beans',
     weight: '340g',
@@ -27,7 +27,7 @@ const products = [
     id: 'beans-dark',
     name: 'Midnight Roast',
     description: 'Bold and intense dark roast with smoky undertones. Ideal for espresso lovers who crave depth.',
-    price: 26.99,
+    price: 2199,
     image: espresso,
     category: 'Coffee Beans',
     weight: '340g',
@@ -37,7 +37,7 @@ const products = [
     id: 'beans-light',
     name: 'Morning Light Roast',
     description: 'Bright and citrusy light roast from Ethiopian highlands. A refreshing way to start your day.',
-    price: 27.99,
+    price: 2299,
     image: latte,
     category: 'Coffee Beans',
     weight: '340g',
@@ -47,7 +47,7 @@ const products = [
     id: 'beans-decaf',
     name: 'Decaf Delight',
     description: 'All the flavor, none of the caffeine. Swiss water processed for a smooth, clean taste.',
-    price: 25.99,
+    price: 2099,
     image: mocha,
     category: 'Coffee Beans',
     weight: '340g',
@@ -60,21 +60,21 @@ const giftSets = [
     id: 'gift-starter',
     name: 'Coffee Starter Kit',
     description: 'Perfect for beginners. Includes 3 signature blends and a brewing guide.',
-    price: 59.99,
+    price: 4999,
     items: ['Signature Blend', 'Morning Light', 'Brewing Guide'],
   },
   {
     id: 'gift-connoisseur',
     name: 'Connoisseur Collection',
     description: 'For the true coffee lover. 5 premium single-origin beans from around the world.',
-    price: 99.99,
+    price: 7999,
     items: ['Ethiopian', 'Colombian', 'Sumatran', 'Guatemalan', 'Kenyan'],
   },
   {
     id: 'gift-ultimate',
     name: 'Ultimate Coffee Experience',
     description: 'The complete package. Beans, gear, and an online class with our head roaster.',
-    price: 199.99,
+    price: 15999,
     items: ['6 Premium Beans', 'Pour-Over Kit', 'Private Class'],
   },
 ];
@@ -88,7 +88,7 @@ const features = [
   {
     icon: Truck,
     title: 'Free Shipping',
-    description: 'On orders over $50',
+    description: 'On orders over ₹2000',
   },
   {
     icon: Gift,
@@ -224,7 +224,7 @@ const Shop = () => {
                   </p>
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-serif font-bold text-gradient-gold">
-                      ${product.price}
+                      ₹{product.price}
                     </span>
                     <Button
                       variant="hero"
@@ -292,7 +292,7 @@ const Shop = () => {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-2xl font-serif font-bold text-gradient-gold">
-                    ${gift.price}
+                    ₹{gift.price}
                   </span>
                   <Button variant="outline" size="sm">
                     <ShoppingBag className="w-4 h-4 mr-2" />
