@@ -1,15 +1,24 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Menu, X, Coffee } from 'lucide-react';
+import { ShoppingBag, Menu, X, Coffee, User, LogOut } from 'lucide-react';
 import { Button } from './ui/button';
 import { useCart } from '@/contexts/CartContext';
+import { useAuth } from '@/contexts/AuthContext';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { totalItems, setIsCartOpen } = useCart();
+  const { user, signOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +35,11 @@ const Navbar = () => {
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/');
+  };
 
   return (
     <motion.nav
@@ -93,9 +107,33 @@ const Navbar = () => {
               )}
             </Button>
 
-            <Button variant="hero" size="sm" className="hidden md:flex">
-              Order Now
-            </Button>
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="glass" size="icon" className="hidden md:flex">
+                    <User className="w-5 h-5" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuItem disabled className="text-muted-foreground">
+                    {user.email}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleSignOut}>
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Button
+                variant="hero"
+                size="sm"
+                className="hidden md:flex"
+                onClick={() => navigate('/auth')}
+              >
+                Sign In
+              </Button>
+            )}
 
             {/* Mobile Menu Toggle */}
             <Button
@@ -134,9 +172,19 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <Button variant="hero" className="mt-4">
-                Order Now
-              </Button>
+              {user ? (
+                <Button variant="outline" onClick={handleSignOut} className="mt-4">
+                  <LogOut className="w-4 h-4 mr-2" />
+                  Sign Out
+                </Button>
+              ) : (
+                <Button variant="hero" className="mt-4" onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  navigate('/auth');
+                }}>
+                  Sign In
+                </Button>
+              )}
             </div>
           </motion.div>
         )}
